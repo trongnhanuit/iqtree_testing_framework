@@ -1,0 +1,19 @@
+name: dependency
+run-name: ${{ github.actor }} is installing dependency 🚀
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  install_dependency:
+    # The installation commands are not platform agnostic and should not work well on Windows or Mac.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update apt
+        run: sudo apt update
+      - name: Install Eigen3
+        run: sudo apt install -y libeigen3-dev
+

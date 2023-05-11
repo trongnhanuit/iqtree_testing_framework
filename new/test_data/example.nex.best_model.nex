@@ -1,0 +1,8 @@
+#nexus
+begin sets;
+  charset part1 = , 1-100;
+  charset part2 = , 101-384;
+  charpartition mymodels =
+    SYM{2.94752,3.75943,3.5228,4.80457,5.48217}+FQ+I{0.124471}+G4{2.10353}: part1{11.9823},
+    K3P{2.01467,1.29264}+FQ+I{0.0689552}+G4{1.3143}: part2{13.4501};
+end;

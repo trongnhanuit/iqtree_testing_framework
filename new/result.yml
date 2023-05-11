@@ -1,0 +1,59 @@
+- command: bin/iqtree -s test_data/example.phy -redo -pre test.0
+  result: Passed
+  tests:
+  - benchmark: '-11222.773'
+    log: 'log-likelihood:'
+    result: NoTest
+    value: '-11222.773'
+  - benchmark: '12.919'
+    log: 'time used:'
+    result: NoTest
+    value: '12.919'
+- command: bin/iqtree -s test_data/example.phy -redo -spp test_data/example.nex -pre
+    test.1
+  result: Passed
+  tests:
+  - benchmark: '-11216.759'
+    log: 'log-likelihood:'
+    result: NoTest
+    value: '-11216.759'
+  - benchmark: '21.337'
+    log: 'time used:'
+    result: NoTest
+    value: '21.337'
+- command: bin/iqtree -s test_data/example.phy -redo -sp test_data/example.nex -pre
+    test.2
+  name: my test 1
+  result: Failed
+  tests:
+  - benchmark: '-11134.459'
+    between:
+    - 3
+    - 5
+    equal: 10.2
+    log: 'BEST SCORE FOUND :'
+    result: Failed
+    value: '-11134.459'
+  - benchmark: '13.981'
+    greater: 10.1
+    log: 'Total wall-clock time used:'
+    result: Passed
+    value: '13.981'
+  - benchmark: No Result
+    greater_equal: 3
+    less_equal: 5
+    log: 'Number of categories:'
+    result: Failed
+  - benchmark: '13.981'
+    greater_equal: 0.5
+    log: 'Total wall-clock time used:'
+    result: Passed
+    value: '13.981'
+  - benchmark: '-11134.459'
+    log: 'log-likelihood:'
+    result: NoTest
+    value: '-11134.459'
+  - benchmark: '13.981'
+    log: 'time used:'
+    result: NoTest
+    value: '13.981'

@@ -1,0 +1,20 @@
+#nexus
+begin sets;
+  charset ndhf1st = 1-2183;
+  charset rbcl1st = 2184-3527;
+  charset rpoc23rd = 3528-4207;
+  charset cprs = 4208-4571;
+  charset phyb3rd = 4572-5753;
+  charset set5_8S = 5754-5913;
+  charset its2 = 5914-6177;
+  charset gbss13rd = 6178-6951;
+  charpartition mymodels =
+    TVM+F+I+G4: ndhf1st,
+    TN+F+I+G4: rbcl1st,
+    GTR+F+G4: rpoc23rd,
+    F81+F+G4: cprs,
+    K2P+I+G4: phyb3rd,
+    TNe+I+G4: set5_8S,
+    GTR+F+I+G4: its2,
+    TIM3+F+I+G4: gbss13rd;
+end;

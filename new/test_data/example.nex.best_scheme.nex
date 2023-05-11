@@ -1,0 +1,8 @@
+#nexus
+begin sets;
+  charset part1 = 1-100;
+  charset part2 = 101-384;
+  charpartition mymodels =
+    SYM+I+G4: part1,
+    K3P+I+G4: part2;
+end;

@@ -1,0 +1,36 @@
+- command: bin/iqtree -s test_data/example.phy -redo -pre test.0
+  tests:
+  - log: 'log-likelihood:'
+    value: '-11222.773'
+  - log: 'time used:'
+    value: '12.919'
+- command: bin/iqtree -s test_data/example.phy -redo -spp test_data/example.nex -pre
+    test.1
+  tests:
+  - log: 'log-likelihood:'
+    value: '-11216.759'
+  - log: 'time used:'
+    value: '21.337'
+- command: bin/iqtree -s test_data/example.phy -redo -sp test_data/example.nex -pre
+    test.2
+  name: my test 1
+  tests:
+  - between:
+    - 3
+    - 5
+    equal: 10.2
+    log: 'BEST SCORE FOUND :'
+    value: '-11134.459'
+  - greater: 10.1
+    log: 'Total wall-clock time used:'
+    value: '13.981'
+  - greater_equal: 3
+    less_equal: 5
+    log: 'Number of categories:'
+  - greater_equal: 0.5
+    log: 'Total wall-clock time used:'
+    value: '13.981'
+  - log: 'log-likelihood:'
+    value: '-11134.459'
+  - log: 'time used:'
+    value: '13.981'

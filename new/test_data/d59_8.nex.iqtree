@@ -1,0 +1,254 @@
+IQ-TREE 2.2.2.3 COVID-edition built Mar  3 2023
+
+Partition file name: test_data/d59_8.nex
+Input file name: test_data/d59_8.phy
+Type of analysis: ModelFinder + tree reconstruction
+Random seed number: 22556
+
+REFERENCES
+----------
+
+To cite IQ-TREE please use:
+
+Bui Quang Minh, Heiko A. Schmidt, Olga Chernomor, Dominik Schrempf,
+Michael D. Woodhams, Arndt von Haeseler, and Robert Lanfear (2020)
+IQ-TREE 2: New models and efficient methods for phylogenetic inference
+in the genomic era. Mol. Biol. Evol., in press.
+https://doi.org/10.1093/molbev/msaa015
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+Since you used partition models please also cite:
+
+Olga Chernomor, Arndt von Haeseler, and Bui Quang Minh (2016)
+Terrace aware data structure for phylogenomic inference from
+supermatrices. Syst. Biol., 65:997-1008.
+https://doi.org/10.1093/sysbio/syw037
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 59 taxa with 8 partitions and 6951 total sites (28.3998% missing data)
+
+  ID	Type	Seq	Site	Unique	Infor	Invar	Const	Name
+   1	DNA	51	2183	988	515	1371	1371	ndhf1st
+   2	DNA	30	1344	354	198	1021	1021	rbcl1st
+   3	DNA	29	680	386	134	406	406	rpoc23rd
+   4	DNA	44	364	354	290	28	28	cprs
+   5	DNA	41	1182	614	414	588	588	phyb3rd
+   6	DNA	50	160	33	18	131	131	set5_8S
+   7	DNA	42	264	241	207	34	34	its2
+   8	DNA	50	774	268	184	466	466	gbss13rd
+
+Column meanings:
+  Unique: Number of unique site patterns
+  Infor:  Number of parsimony-informative sites
+  Invar:  Number of invariant sites
+  Const:  Number of constant sites (can be subset of invariant sites)
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: TVM+F+I+G4:ndhf1st,TN+F+I+G4:rbcl1st,GTR+F+G4:rpoc23rd,F81+F+G4:cprs,K2P+I+G4:phyb3rd,TNe+I+G4:set5_8S,GTR+F+I+G4:its2,TIM3+F+I+G4:gbss13rd
+
+List of best-fit models per partition:
+
+  ID  Model                  LogL         AIC      w-AIC        AICc     w-AICc         BIC      w-BIC
+   1  TVM+F+I+G4       -14786.409   29788.818 - 6.94e-310   29800.170 + 6.94e-310   30403.171 + 2.96e-323
+   2  TN+F+I+G4         -5836.294   11800.587 - 6.94e-310   11807.092 + 6.94e-310   12133.605 + 2.96e-323
+   3  GTR+F+G4          -3399.587    6927.173 - 6.94e-310    6940.702 + 6.94e-310    7216.587 + 2.96e-323
+   4  F81+F+G4          -3951.134    8080.267 - 6.94e-310    8138.734 + 6.94e-310    8427.114 + 2.96e-323
+   5  K2P+I+G4         -11690.380   23544.760 - 6.94e-310   23557.146 + 6.94e-310   23960.907 + 2.96e-323
+   6  TNe+I+G4           -643.923    1489.846 - 6.94e-310    1845.087 + 6.94e-310    1800.438 + 2.96e-323
+   7  GTR+F+I+G4        -5733.212   11648.423 - 6.94e-310   11745.772 + 6.94e-310   11973.835 + 2.96e-323
+   8  TIM3+F+I+G4       -4299.834    8809.669 - 6.94e-310    8842.992 + 6.94e-310    9298.084 + 2.96e-323
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Edge-unlinked partition model with separate substitution models and separate rates across sites
+
+  ID  Model         TreeLen  Parameters
+   1  TVM+F+I+G4     1.3339  TVM{1.84244,4.76035,0.467772,1.56638}+F{0.273827,0.162848,0.177013,0.386312}+I{0.403613}+G4{0.913694}
+   2  TN+F+I+G4      0.6583  TN{3.15256,4.76434}+F{0.271179,0.192821,0.248964,0.287036}+I{0.553627}+G4{0.639206}
+   3  GTR+F+G4       1.2342  GTR{1.05477,2.82931,0.116368,1.233,8.03374}+F{0.398199,0.151105,0.281057,0.169639}+G4{1.05519}
+   4  F81+F+G4       3.9991  F81+F{0.572079,0.427694,0.000113486,0.000113486}+G4{2.60756}
+   5  K2P+I+G4       12.8179  K2P{4.05059}+FQ+I{0.26826}+G4{0.631754}
+   6  TNe+I+G4       1.1143  TNe{2.77788,10.8986}+FQ+I{0.557425}+G4{0.300271}
+   7  GTR+F+I+G4     10.2034  GTR{1.66831,2.64982,3.81807,0.572078,5.46401}+F{0.165579,0.345699,0.339792,0.148931}+I{0.0652063}+G4{1.29}
+   8  TIM3+F+I+G4    9.9258  TIM3{2.60311,4.44048,7.00578}+F{0.218426,0.291182,0.325999,0.164393}+I{0.324936}+G4{0.586099}
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -50329.5495 (s.e. 721.4036)
+Unconstrained log-likelihood (without tree): -34551.0974
+Number of free parameters (#branches + #model parameters): 704
+Akaike information criterion (AIC) score: 102067.0990
+Corrected Akaike information criterion (AICc) score: 102226.0231
+Bayesian information criterion (BIC) score: 106887.1341
+
+Total tree length (sum of branch lengths): 7.7363
+Sum of internal branch lengths: 1.3647 (17.6401% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon 'Flagellari' is drawn at root
+NOTE: Branch lengths are weighted average over all partitions
+      (weighted by the number of sites in the partitions)
+
++--Flagellari
+|
+|  +-----Joinvillea
++--|
+|  |        +--Anomochloa
+|  |     +--|
+|  |     |  +--Streptocha
+|  +-----|
+|        |  +--Pharus
+|        +--|
+|           |                       +--Eremitis
+|           |                    +--|
+|           |                    |  +--Pariana
+|           |                 +--|
+|           |                 |  |  +--Lithachne
+|           |                 |  +--|
+|           |                 |     +--Olyra
+|           |              +--|
+|           |              |  +--Buergersio
+|           |           +--|
+|           |           |  |  +--Pseudosasa
+|           |           |  +--|
+|           |           |     +--Chusquea
+|           |        +--|
+|           |        |  |  +--Streptogyn
+|           |        |  +--|
+|           |        |     |  +--Ehrharta
+|           |        |     +--|
+|           |        |        |  +--Oryza
+|           |        |        +--|
+|           |        |           +--Leersia
+|           |     +--|
+|           |     |  |           +--Phaenosper
+|           |     |  |        +--|
+|           |     |  |        |  |              +--Stipa
+|           |     |  |        |  |           +--|
+|           |     |  |        |  |           |  +--Nassella
+|           |     |  |        |  |        +--|
+|           |     |  |        |  |        |  +--Piptatheru
+|           |     |  |        |  |     +--|
+|           |     |  |        |  |     |  +--------------------------------------------------Ampelodesm
+|           |     |  |        |  |  +--|
+|           |     |  |        |  |  |  |  +--Melica
+|           |     |  |        |  |  |  +--|
+|           |     |  |        |  |  |     +--Glyceria
+|           |     |  |        |  +--|
+|           |     |  |        |     |  +--Brachypodi
+|           |     |  |        |     +--|
+|           |     |  |        |        |  +--Diarrhena
+|           |     |  |        |        +--|
+|           |     |  |        |           |  +--Avena
+|           |     |  |        |           +--|
+|           |     |  |        |              |  +--Bromus
+|           |     |  |        |              +--|
+|           |     |  |        |                 +--Triticum
+|           |     |  |     +--|
+|           |     |  |     |  +--Anisopogon
+|           |     |  |  +--|
+|           |     |  |  |  |  +--Nardus
+|           |     |  |  |  +--|
+|           |     |  |  |     +--Lygeum
+|           |     |  +--|
+|           |     |     +--Brachyelyt
+|           |  +--|
+|           |  |  |        +--Aristida
+|           |  |  |     +--|
+|           |  |  |     |  +--Stipagrost
+|           |  |  |  +--|
+|           |  |  |  |  +--Eriachne
+|           |  |  +--|
+|           |  |     |              +--Arundo
+|           |  |     |           +--|
+|           |  |     |           |  +--Amphipogon
+|           |  |     |        +--|
+|           |  |     |        |  |  +--Molinia
+|           |  |     |        |  +--|
+|           |  |     |        |     +--Phragmites
+|           |  |     |     +--|
+|           |  |     |     |  |     +--Thysanolae
+|           |  |     |     |  |  +--|
+|           |  |     |     |  |  |  +--Chasmanthi
+|           |  |     |     |  +--|
+|           |  |     |     |     |     +--Zeugites
+|           |  |     |     |     |  +--|
+|           |  |     |     |     |  |  +--Danthoniop
+|           |  |     |     |     +--|
+|           |  |     |     |        |        +--Panicum
+|           |  |     |     |        |     +--|
+|           |  |     |     |        |     |  +--Pennisetum
+|           |  |     |     |        |  +--|
+|           |  |     |     |        |  |  |  +--Miscanthus
+|           |  |     |     |        |  |  +--|
+|           |  |     |     |        |  |     +--Zea
+|           |  |     |     |        +--|
+|           |  |     |     |           +--Gynerium
+|           |  |     |  +--|
+|           |  |     |  |  |  +--Micraira
+|           |  |     |  |  +--|
+|           |  |     |  |     |     +--Eragrostis
+|           |  |     |  |     |  +--|
+|           |  |     |  |     |  |  +--Pappophoru
+|           |  |     |  |     +--|
+|           |  |     |  |        |  +--Zoysia
+|           |  |     |  |        +--|
+|           |  |     |  |           |  +--Spartina
+|           |  |     |  |           +--|
+|           |  |     |  |              +--Sporobolus
+|           |  |     +--|
+|           |  |        +--Danthonia
+|           +--|
+|              |  +--Guaduella
+|              +--|
+|                 +--Puelia
+|
+|  +--Elegia
++--|
+   +--Baloskion
+
+Tree in newick format:
+
+(Flagellari:0.0672710352,(Joinvillea:0.5111592196,((Anomochloa:0.0583849676,Streptocha:0.0311084956):0.0338646679,(Pharus:0.0643084375,((((((((Eremitis:0.0197891287,Pariana:0.0118279686):0.0357623804,(Lithachne:0.0379394238,Olyra:0.0093135353):0.0214002260):0.0102987876,Buergersio:0.0134549580):0.0158863528,(Pseudosasa:0.0134184887,Chusquea:0.0335816516):0.0060409800):0.0116549014,(Streptogyn:0.0215354586,(Ehrharta:0.0508230697,(Oryza:0.0309808414,Leersia:0.0148114174):0.0292052367):0.0136259202):0.0051021297):0.0050890987,((((Phaenosper:0.0198569009,(((((Stipa:0.0066873806,Nassella:0.0151717269):0.0070435546,Piptatheru:0.0100910043):0.0071325773,Ampelodesm:4.3142488360):0.0059293213,(Melica:0.0332611128,Glyceria:0.0368271690):0.0247621027):0.0020365883,(Brachypodi:0.0569515381,(Diarrhena:0.0222589106,(Avena:0.0457451919,(Bromus:0.0196954423,Triticum:0.0160299218):0.0190080383):0.0146314769):0.0147927915):0.0051153258):0.0018161420):0.0010661655,Anisopogon:0.0281720109):0.0087877715,(Nardus:0.0340152075,Lygeum:0.0696494871):0.0361082485):0.0089874853,Brachyelyt:0.0419739336):0.0112110167):0.0221958767,(((Aristida:0.0262022749,Stipagrost:0.0211665973):0.0135824741,Eriachne:0.0470273657):0.0131201981,(((((Arundo:0.0113477798,Amphipogon:0.0407103396):0.0069966488,(Molinia:0.0130942315,Phragmites:0.0127480086):0.0091876489):0.0037667751,((Thysanolae:0.0193791192,Chasmanthi:0.0310682518):0.0057206007,((Zeugites:0.0204263506,Danthoniop:0.0266253462):0.0120176956,(((Panicum:0.0222708604,Pennisetum:0.0268926178):0.0129480250,(Miscanthus:0.0134623732,Zea:0.0233420089):0.0183278994):0.0187029964,Gynerium:0.0141546587):0.0024078592):0.0058169748):0.0055628356):0.0023926397,(Micraira:0.0318038190,((Eragrostis:0.0159343755,Pappophoru:0.0207962057):0.0104401826,(Zoysia:0.0168167279,(Spartina:0.0111850134,Sporobolus:0.0156446600):0.0224551011):0.0291196482):0.0211237501):0.0058233880):0.0026947970,Danthonia:0.0513918354):0.0031788846):0.0291061014):0.0221781491,(Guaduella:0.0016185328,Puelia:0.0120699853):0.0115187444):0.0265576669):0.0165204111):0.5262942535):0.0810333866,(Elegia:0.0165839089,Baloskion:0.0475257747):0.0475411772);
+
+ALISIM COMMAND
+--------------
+To simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis, you can use the following command:
+
+--alisim simulated_MSA -t test_data/d59_8.nex.parttrees -Q test_data/d59_8.nex.best_model.nex
+
+To mimic the alignment used to produce this analysis, i.e. simulate an alignment of the same length as the original alignment, using the tree and model parameters estimated from this analysis *and* copying the same gap positions as the original alignment, you can use the following command:
+
+iqtree -s test_data/d59_8.phy --alisim mimicked_MSA
+
+To simulate any number of alignments in either of the two commandlines above, use the --num-alignments options, for example mimic 100 alignments you would use the command line:
+
+iqtree -s test_data/d59_8.phy --alisim mimicked_MSA --num-alignments 100
+
+For more information on using AliSim, please visit: www.iqtree.org/doc/AliSim
+
+TIME STAMP
+----------
+
+Date and time: Tue Mar 21 20:04:14 2023
+Total CPU time used: 132.294 seconds (0h:2m:12s)
+Total wall-clock time used: 139.512 seconds (0h:2m:19s)
+

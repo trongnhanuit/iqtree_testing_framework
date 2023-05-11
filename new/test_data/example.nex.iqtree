@@ -1,0 +1,187 @@
+IQ-TREE 1.6.12 built Aug 15 2019
+
+Partition file name: test_data/example.nex
+Input file name: test_data/example.phy
+Type of analysis: ModelFinder + tree reconstruction
+Random seed number: 391148
+
+REFERENCES
+----------
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+To cite IQ-TREE please use:
+
+Lam-Tung Nguyen, Heiko A. Schmidt, Arndt von Haeseler, and Bui Quang Minh
+(2015) IQ-TREE: A fast and effective stochastic algorithm for estimating
+maximum likelihood phylogenies. Mol Biol Evol, 32:268-274.
+https://doi.org/10.1093/molbev/msu300
+
+Since you used partition models please also cite:
+
+Olga Chernomor, Arndt von Haeseler, and Bui Quang Minh (2016)
+Terrace aware data structure for phylogenomic inference from
+supermatrices. Syst Biol, 65:997-1008.
+https://doi.org/10.1093/sysbio/syw037
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 44 taxa with 2 partitions and 384 total sites (0% missing data)
+
+  ID  Name   Type	Seq	Site	Unique	Infor	Invar	Const
+   1  part1  DNA	44	100	93	84	13	13
+   2  part2  DNA	44	284	265	238	27	27
+
+Column meanings:
+  Unique: Number of unique site patterns
+  Infor:  Number of parsimony-informative sites
+  Invar:  Number of invariant sites
+  Const:  Number of constant sites (can be subset of invariant sites)
+
+ModelFinder
+-----------
+
+Best-fit model according to BIC: SYM+I+G4:part1,K3P+I+G4:part2
+
+List of best-fit models per partition:
+
+  ID  Model             LogL          AIC      w-AIC      AICc     w-AICc       BIC      w-BIC
+   1  SYM+I+G4         -3127.7349   6271.4698 + 0.0000   6273.0522 + 0.0000   6292.3111 + 0.0000
+   2  K3P+I+G4         -8179.0035  16368.0071 + 0.0000  16368.2229 + 0.0000  16386.2519 + 0.0000
+
+AIC, w-AIC   : Akaike information criterion scores and weights.
+AICc, w-AICc : Corrected AIC scores and weights.
+BIC, w-BIC   : Bayesian information criterion scores and weights.
+
+Plus signs denote the 95% confidence sets.
+Minus signs denote significant exclusion.
+
+SUBSTITUTION PROCESS
+--------------------
+
+Edge-linked-proportional partition model but separate models between partitions
+
+  ID  Model           Speed  Parameters
+   1  SYM+I+G4       0.9247  SYM{2.37807,3.03436,2.63332,3.65933,4.14062}+FQ+I{0.12434}+G4{2.1994}
+   2  K3P+I+G4       1.0265  K3P{2.03915,1.31372}+FQ+I{0.0693705}+G4{1.36645}
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -11214.7585 (s.e. 333.3879)
+Unconstrained log-likelihood (without tree): -2007.9605
+Number of free parameters (#branches + #model parameters): 97
+Akaike information criterion (AIC) score: 22623.5170
+Corrected Akaike information criterion (AICc) score: 22689.9925
+Bayesian information criterion (BIC) score: 23006.7293
+
+Total tree length (sum of branch lengths): 12.7242
+Sum of internal branch lengths: 4.8836 (38.3800% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon 'FL-1-103' is drawn at root
+
++-----FL-1-103
+|
+|  +---OSH-1-103
++--|
+|  |  +---CEU-1-103
+|  +--|
+|     |                    +-----TH-1-103
+|     |                 +--|
+|     |                 |  |  +---SI-1-103
+|     |                 |  +--|
+|     |                 |     +----LU-1-103
+|     |              +--|
+|     |              |  +------CAa1-103
+|     +--------------|
+|                    |  +--CAb1-103
+|                    +--|
+|                       +-------SU-1-103
+|
+|                                                  +--RP-56-175
+|                                               +--|
+|                                               |  +---A-14-133
+|                                            +--|
+|                                            |  +--YBN-56-175
+|                                         +--|
+|                                         |  |      +--TH-52-170
+|                                         |  +------|
+|                                         |         +--LA-68-186
+|                                      +--|
+|                                      |  +---SA-60-179
+|                                   +--|
+|                                   |  |     +----BR-60-179
+|                                   |  |  +--|
+|                                   |  |  |  |     +--CPL-58-177
+|                                   |  |  |  |  +--|
+|                                   |  |  |  |  |  +--LTU-59-178
+|                                   |  |  |  +--|
+|                                   |  |  |     +--TSP-58-177
+|                                   |  +--|
+|                                   |     |     +---AN-56-175
+|                                   |     |  +--|
+|                                   |     |  |  +--ANA-56-175
+|                                   |     +--|
+|                                   |        +---HI-60-179
+|                                +--|
+|                                |  |  +----PR-57-176
+|                                |  +--|
+|                                |     +--SCR-58-177
+|                            +---|
+|                            |   +--PY-61-180
+|                         +--|
+|                         |  +--MGI-58-176
+|                 +-------|
+|                 |       |  +--ZE-48-166
+|                 |       +--|
+|                 |          |  +--EAT-48-166
+|                 |          +--|
+|                 |             +--YSA-46-164
+|              +--|
+|              |  |  +---GR-854-978
+|              |  +--|
+|              |     |  +---MO-29-154
+|              |     +--|
+|              |        |           +---OE-36-161
+|              |        |  +--------|
+|              |        |  |        +----EME-43-168
+|              |        +--|
+|              |           +--LRE-46-171
+|           +--|
+|           |  |          +---P6-2-107
+|           |  +----------|
+|           |             |  +--HO-1-106
+|           |             +--|
+|           |                |     +--SP-1-106
+|           |                +-----|
+|           |                      +----------------------PA-1-105
++-----------|
+            |          +---------NE-2-109
+            |      +---|
+            |      |   +------IFE-2-109
+            |   +--|
+            |   |  |     +--HS-9-115
+            |   |  |  +--|
+            |   |  |  |  +--RVI-7-114
+            |   |  +--|
+            |   |     +-------IFE-8-115
+            +---|
+                +--------RVI-5-112
+
+Tree in newick format:
+
+(FL-1-103:0.2361265967,(OSH-1-103:0.1801139460,(CEU-1-103:0.1669769153,(((TH-1-103:0.2261468472,(SI-1-103:0.1484083729,LU-1-103:0.2123826512):0.0563511616):0.0445562774,CAa1-103:0.2587166735):0.0791485859,(CAb1-103:0.1260777318,SU-1-103:0.3197440832):0.1290946975):0.5721442938):0.0385110563):0.0538176391,((((((((((((RP-56-175:0.1061925602,A-14-133:0.1590699109):0.0977807774,YBN-56-175:0.0577829679):0.0260400296,(TH-52-170:0.1018350823,LA-68-186:0.1271375876):0.2550177898):0.0108213477,SA-60-179:0.1701219334):0.0263752363,((BR-60-179:0.1843493969,((CPL-58-177:0.0926375346,LTU-59-178:0.0489846571):0.0480481213,TSP-58-177:0.0630159229):0.0973447642):0.0053748148,((AN-56-175:0.1734256615,ANA-56-175:0.1316673233):0.0382685346,HI-60-179:0.1571076184):0.0535679677):0.0144774758):0.0409397481,(PR-57-176:0.2004472070,SCR-58-177:0.1172103205):0.0768718236):0.0468733676,PY-61-180:0.0570605464):0.1566474268,MGI-58-176:0.0704246825):0.0489379538,(ZE-48-166:0.1444948662,(EAT-48-166:0.1379993892,YSA-46-164:0.1038295103):0.0460586497):0.0281381687):0.3234239131,(GR-854-978:0.1752306324,(MO-29-154:0.1503387809,((OE-36-161:0.1678767447,EME-43-168:0.1957357375):0.3314508344,LRE-46-171:0.0936317196):0.0590254654):0.0178055196):0.0424766562):0.1105012667,(P6-2-107:0.1732634897,(HO-1-106:0.1115701395,(SP-1-106:0.1178142799,PA-1-105:0.8528430319):0.2510359647):0.1277325285):0.4160271030):0.0936800779,(((NE-2-109:0.3656428563,IFE-2-109:0.2806163315):0.1630020425,((HS-9-115:0.1185303125,RVI-7-114:0.1087000224):0.0081519725,IFE-8-115:0.3056445803):0.1308843252):0.1008505974,RVI-5-112:0.3437407032):0.1808445212):0.4354520948);
+
+TIME STAMP
+----------
+
+Date and time: Tue Apr 11 22:51:36 2023
+Total CPU time used: 10.8072 seconds (0h:0m:10s)
+Total wall-clock time used: 10.8187 seconds (0h:0m:10s)
+

@@ -1,0 +1,64 @@
+partition_alignments:
+  - aln: example.phy
+    prt: example.nex
+  - aln: d59_8.phy
+    prt: d59_8.nex
+
+single_alignments:
+  - example.phy
+  - d59_8.phy
+
+partition_options:
+   - -sp
+   - -spp
+   - -q
+
+generic_options:
+   - -m TEST
+
+options:
+   - -mset
+   - -msub
+   - -mfreq
+   - -mrate
+   - -cmin
+   - -cmax
+   - -mtree
+   # tree search parameters
+   - -allnni
+   - -djc
+   - -g
+   - -ninit
+   - -n
+   - -nstop
+   # ultra fast bootstrap parameters
+   - -bb
+   - -bcor
+   - -beps
+   - -bnni
+   - -bsam
+   - -nm
+
+specific_test:
+  # iqtree2 location is in the bin folder
+  - name: my test 1
+    command: -s test_data/example.phy -redo -sp test_data/example.nex
+    tests:
+      - log: "BEST SCORE FOUND :"
+        equal: 10.2
+        between: [3, 5]
+      - log: "Total wall-clock time used:"
+        greater: 10.1
+      - log: "Number of categories:"
+        greater_equal: 3
+        less_equal: 5
+      - log: "Total wall-clock time used:"
+        greater_equal: 0.5
+  - name: my test 2
+    command: -s test_data/example.phy -redo -sp test_data/example.nex -m TEST
+    tests:
+      - log: "Total wall-clock time used:"
+        greater: 10.1
+
+result_outlier_threshold: 0.5
+#

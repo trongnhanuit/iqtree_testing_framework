@@ -1,0 +1,4 @@
+matplotlib==3.5.3
+matplotlib-inline==0.1.6
+PyYAML==6.0
+tzlocal==3.0

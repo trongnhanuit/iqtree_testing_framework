@@ -1,0 +1,53 @@
+name: test iqtree1
+run-name: ${{ github.actor }} is testing on IQTREE stable version 🚀
+on: [push]
+
+env:
+  # Where the iqtree bin is
+  BIN: "new/bin"
+  TEST_DIR: "new"
+
+jobs:
+  test iqtree1:
+    # could support multiple platform and multiple version of python
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ "3.7" ]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependency
+        run: |
+          python -m pip install --upgrade pip
+
+
+      # test
+      - name: testing
+        run: |
+          cd ${{env.TEST_DIR}}
+          python3 test1.py
+
+      - name: compare test
+        run: python3 test_compare.py
+
+  test compare:
+    - needs: build
+    - name: Download result for iqtree2
+      uses: actions/download-artifact@v2
+      with:
+        name: iqtree2
+        path: ${{env.TEST_DIR}}
+
+    - name: upload the compare result
+      uses: actions/download-artifact@v2
+      with:
+        name: iqtree2
+        path: ${{env.TEST_DIR}}
+
+
