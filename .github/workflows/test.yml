@@ -126,13 +126,10 @@ jobs:
           cd ${{env.TEST_DIR}}
           pip install -r requirements.txt
 
-
-
-      # test iqtree1
+      # test iqtree1 and give permission
       - name: testing
         run: |
           cd ${{env.TEST_DIR}}
-        # Give permission
           chmod +x bin/iqtree
           python3 test.py -v ${{env.IQTREE1_VERSION}} -b ${{env.BIN_DIR}} -c ${{env.CONFIG_DIR}} -o ${{env.IQTREE1_RESULT}}
 
