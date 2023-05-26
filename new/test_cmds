@@ -1,3 +1,4 @@
-bin/iqtree -s test_data/example.phy -redo -m TEST
-bin/iqtree -s test_data/example.phy -redo -sp test_data/example.nex -m TEST
-bin/iqtree -s test_data/example.phy -redo -spp test_data/example.nex -m TEST
+bin/iqtree-2.2.0 -s test_data/example.phy -redo -m TEST
+bin/iqtree-2.2.0 -s test_data/example.phy -redo -sp test_data/example.nex -m TEST
+bin/iqtree-2.2.0 -s test_data/example.phy -redo -spp test_data/example.nex -m TEST
+bin/iqtree-2.2.0 -s test_data/example.phy -redo -q test_data/example.nex -m TEST

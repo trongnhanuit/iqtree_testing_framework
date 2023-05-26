@@ -1,12 +1,12 @@
 partition_alignments:
   - aln: example.phy
     prt: example.nex
-  - aln: d59_8.phy
-    prt: d59_8.nex
+#  - aln: d59_8.phy
+#    prt: d59_8.nex
 
 single_alignments:
   - example.phy
-  - d59_8.phy
+#  - d59_8.phy
 
 partition_options:
    - -sp

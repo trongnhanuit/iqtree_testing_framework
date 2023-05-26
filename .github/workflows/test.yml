@@ -131,7 +131,6 @@ jobs:
       - name: testing
         run: |
           cd ${{env.TEST_DIR}}
-          chmod +x bin/iqtree
           python3 test.py -v ${{env.IQTREE1_VERSION}} -b ${{env.BIN_DIR}} -c ${{env.CONFIG_DIR}} -o ${{env.IQTREE1_RESULT}}
 
       - name: upload the test result for iqtree1
