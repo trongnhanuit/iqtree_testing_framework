@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 import yaml
 
 from config_parser import cmd_constructor
@@ -108,7 +109,9 @@ with open(args.iqtree1, "r") as result:
         f.close()
 
 # plot the result
-plot_keywords = ['log-likelihood:', 'time used:']
+# plot_keywords = ['log-likelihood:', 'time used:']
+
+plot_keywords = ['time used:']
 name = []
 data1 = [[] for _ in range(len(plot_keywords))]
 data2 = [[] for _ in range(len(plot_keywords))]
@@ -133,12 +136,153 @@ with open("result.yml", "r") as f:
                 name.append(cmd["command"].split(" ")[-1])
 
     # plot
+    plt.figure(figsize=(20, 12))
     for i in range(len(plot_keywords)):
         plt.subplot(len(plot_keywords), 1, i + 1)
         # plt.plot(name, [float(data1[i][j]) - float(data2[i][j]) for j in range(len(data1[i]))], label="difference")
-        plt.plot(name, [float(data1[i][j]) / float(data2[i][j]) for j in range(len(data1[i]))], label="ratio")
+        plt.bar(name, [float(data1[i][j]) / float(data2[i][j]) for j in range(len(data1[i]))], label="ratio")
         plt.legend()
         plt.title(plot_keywords[i])
 
+
+
+
     plt.savefig(args.image_output)
+    plt.show()
+# compare multiple results
+def horizontal_compare_runtime():
+    files = ["iqtree-1.6.12-Stable.yml",  "iqtree-2.1.3.yml", "iqtree-2.2.0.yml", "iqtree-2.2.0.3.mm.yml", "iqtree-2.2.0.3.yml", "iqtree-2.2.0.4.yml", "iqtree-2.2.0.5.yml", "iqtree-2.2.0.7.yml", "iqtree-2.2.2.yml", "iqtree-2.2.2.3.yml", "iqtree-2.2.2.5-Latest.yml"]
+    names = [" " + files[i][0:-4].replace("iqtree", "v") for i in range(len(files))]
+    plot_keywords = ['time used:']
+    all_results = []
+    # Read and process the output files
+    for name in files:
+        with open(f"{name}", "r") as f:
+            result = []
+            data = yaml.safe_load(f)
+            for cmd in data:
+                # boolean if the cmd has tests
+
+                for test in cmd["tests"]:
+                    if "value" in test.keys():
+                        for i in range(len(plot_keywords)):
+                            if plot_keywords[i] == test["log"] and "value" in test.keys():
+                                result.append(test["value"])
+            all_results.append(result)
+    num_tests = len(all_results[0])
+    # Plot the results in a bar chart
+    # Create an array to store the results for each test across files
+    results = np.zeros((num_tests, len(files)))
+
+    # Set global font size
+    # plt.rcParams.update({'font.size': 18})
+
+    # Fill the results array with the test results
+    for i, results_list in enumerate(all_results):
+        results[:, i] = results_list
+
+    # Plot the results in a bar chart
+    fig, ax = plt.subplots(figsize=(8, 4))
+    x = np.arange(num_tests)
+    bar_width = 1.0 / (len(files) + 1)
+
+    for i, name in enumerate(names):
+        bars = ax.bar(x + i * bar_width, results[:, i], width=bar_width, label=name)
+        if i == 0 or i == len(names) - 1:
+            for bar in bars:
+                ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height(),
+                        name, ha='center', va='bottom',
+                        rotation='vertical')
+
+    # Set labels and titles
+    ax.set_xlabel('Test Index')
+    # ax.set_xticks(x)
+    # ax.set_xticklabels(files)
+    ax.set_ylabel('Running time (seconds)')
+    ax.set_title('Comparison of Running Time In Version Number Ascending Order')
+
+    ax.set_xticks(x + (len(files) / 2) * bar_width)
+    ax.set_xticklabels([f"Test {i + 1}" for i in range(num_tests)])
+
+    # Add a legend
+    ax.legend(bbox_to_anchor=(1, 1), loc='upper left')
+
+    # Show the bar chart
+    plt.tight_layout()
+    plt.savefig('output.pdf')
+    plt.show()
+
+def horizontal_compare_loglikelihood():
+    files = ["iqtree-1.6.12-Stable.yml",  "iqtree-2.1.3.yml", "iqtree-2.2.0.yml", "iqtree-2.2.0.3.mm.yml", "iqtree-2.2.0.3.yml", "iqtree-2.2.0.4.yml", "iqtree-2.2.0.5.yml", "iqtree-2.2.0.7.yml", "iqtree-2.2.2.yml", "iqtree-2.2.2.3.yml", "iqtree-2.2.2.5-Latest.yml"]
+    names = [" " + files[i][0:-4].replace("iqtree", "v") for i in range(len(files))]
+    plot_keywords = ['log-likelihood:']
+    all_results = []
+    benchmark = []
+    # Read and process the output files
+    for name in files:
+        with open(f"{name}", "r") as f:
+            result = []
+            data = yaml.safe_load(f)
+            for j, cmd in enumerate(data):
+                # boolean if the cmd has tests
+                for test in cmd["tests"]:
+                    if "value" in test.keys():
+                        for i in range(len(plot_keywords)):
+                            if name == "iqtree-1.6.12-Stable.yml":
+                                if plot_keywords[i] == test["log"]:
+                                    benchmark.append(test["value"])
+                            if plot_keywords[i] == test["log"] and "value" in test.keys():
+                                result.append(float(test["value"]) - float(benchmark[j]))
+
+            all_results.append(result)
+    del all_results[0]
+    del files[0]
+    del names[0]
+    num_tests = len(all_results[0])
+    # Plot the results in a bar chart
+    # Create an array to store the results for each test across files
+    results = np.zeros((num_tests, len(files)))
+
+    # Set global font size
+    # plt.rcParams.update({'font.size': 18})
+
+    # Fill the results array with the test results
+    for i, results_list in enumerate(all_results):
+        results[:, i] = results_list
+
+    # Plot the results in a bar chart
+    fig, ax = plt.subplots(figsize=(8, 3))
+    x = np.arange(num_tests)
+    bar_width = 1.0 / (len(files) + 1)
+
+    for i, name in enumerate(names):
+        bars = ax.bar(x + i * bar_width, results[:, i], width=bar_width, label=name)
+        # if i == 0 or i == len(names) - 1:
+        #     for bar in bars:
+        #         ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height(),
+        #                 name, ha='center', va='bottom',
+        #                 rotation='vertical')
+
+    # Set labels and titles
+    ax.set_xlabel('Test Index')
+    # ax.set_xticks(x)
+    # ax.set_xticklabels(files)
+    ax.set_ylabel('Log-likelihood')
+    ax.set_title('Log-likelihood Difference to Stable Version of Different Versions In Ascending Order')
+
+    ax.set_xticks(x + (len(files) / 2) * bar_width)
+    ax.set_xticklabels([f"Test {i + 1}" for i in range(num_tests)])
+
+    # Add a legend
+    ax.legend(bbox_to_anchor=(1, 1), loc='upper left')
+
+    # Show the bar chart
+    plt.tight_layout()
+    plt.savefig('output1.pdf')
+    plt.show()
+
+# horizontal_compare_runtime()
+# plt.legend()
+# plt.show()
+# plt.savefig(args.image_output)
     # plt.show()
