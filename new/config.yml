@@ -36,29 +36,29 @@ options:
    - -bcor 0.5
    - -beps 0.5
    - -bnni
-   - -bsam 100
-   - -nm 1000
+#   - -bsam 100
+#   - -nm 1000
 
-#specific_test:
-#  # iqtree2 location is in the bin folder
-#  - name: my test 1
-#    command: -s test_data/example.phy -redo -sp test_data/example.nex
-#    tests:
-#      - log: "BEST SCORE FOUND :"
-#        equal: 10.2
-#        between: [3, 5]
-#      - log: "Total wall-clock time used:"
-#        greater: 10.1
-#      - log: "Number of categories:"
-#        greater_equal: 3
-#        less_equal: 5
-#      - log: "Total wall-clock time used:"
-#        greater_equal: 0.5
-#  - name: my test 2
-#    command: -s test_data/example.phy -redo -sp test_data/example.nex -m TEST
-#    tests:
-#      - log: "Total wall-clock time used:"
-#        greater: 10.1
+specific_test:
+  # iqtree2 location is in the bin folder
+  - name: my test 1
+    command: -s test_data/example.phy -redo -sp test_data/example.nex
+    tests:
+      - log: "BEST SCORE FOUND :"
+        equal: 10.2
+        between: [3, 5]
+      - log: "Total wall-clock time used:"
+        greater: 10.1
+      - log: "Number of categories:"
+        greater_equal: 3
+        less_equal: 5
+      - log: "Total wall-clock time used:"
+        greater_equal: 0.5
+  - name: my test 2
+    command: -s test_data/example.phy -redo -sp test_data/example.nex -m TEST
+    tests:
+      - log: "Total wall-clock time used:"
+        greater: 10.1
 #
 #result_outlier_threshold: 0.5
 #

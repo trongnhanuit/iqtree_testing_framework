@@ -133,16 +133,17 @@ with open("result.yml", "r") as f:
             if "name" in cmd.keys():
                 name.append(cmd["name"])
             else:
-                name.append(cmd["command"].split(" ")[-1])
+                test_name = cmd["command"].split(" ")[-1]
+                name.append(test_name.split(".")[-1])
 
     # plot
-    plt.figure(figsize=(20, 12))
+    plt.figure(figsize=(20, 8))
     for i in range(len(plot_keywords)):
         plt.subplot(len(plot_keywords), 1, i + 1)
         # plt.plot(name, [float(data1[i][j]) - float(data2[i][j]) for j in range(len(data1[i]))], label="difference")
-        plt.bar(name, [float(data1[i][j]) / float(data2[i][j]) for j in range(len(data1[i]))], label="ratio")
+        plt.bar(name, [float(data1[i][j]) / float(data2[i][j]) for j in range(len(data1[i]))], label="ratio iqtree2/iqtree1")
         plt.legend()
-        plt.title(plot_keywords[i])
+        plt.title(plot_keywords[i] + "compared with iqtree1")
 
 
 
