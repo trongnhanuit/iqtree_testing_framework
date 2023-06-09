@@ -23,7 +23,7 @@ Ensure you have Python 3.x installed.
 
 Before running the test, you will need to configure some options.
 
-- **Config File**: This file is located at `dirctory/config.xml`. The default directory is new. You can specify different options you want to test here.
+- **Config File**: This file is located at `dirctory/config.yml`. The default directory is new. You can specify different options you want to test here.
 
 ## Usage
 
@@ -31,7 +31,7 @@ Upload this dirctory for testing and .github dirctory for GitHub CI.
 
 ## File Specifications
 
-- **Email File**: You need to specify your email address in `email.py`. You might need to change some settings with your email account.
+- **Email File**: You need to specify your email address in `send_email.py`. You might need to change some settings with your email account.
 
 ## Troubleshooting and Support
 
