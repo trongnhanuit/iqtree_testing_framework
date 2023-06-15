@@ -20,9 +20,9 @@ options:
    - -cmin 2
    - -mtree
     #Site-specific frequency model options
-   - -ft
-   - -fs
-   - -fmax
+   #- -ft
+   #- -fs
+   #- -fmax
    # tree search parameters
    - -allnni
    - -djc
@@ -30,7 +30,7 @@ options:
    - -nbest 5
    - -nstop 100
    - -pers 0.5
-   - -sprrad 6
+   - --sprrad 6
    # ultra fast bootstrap parameters
    - -bb 1000
    - -bcor 0.5
@@ -59,6 +59,20 @@ specific_test:
     tests:
       - log: "Total wall-clock time used:"
         greater: 10.1
+  # test comparing strings
+  - name: my test 3
+    command: --alisim test -m JC -t "RANDOM{yh,100}" -redo
+    tests:
+      - log: "Model of substitution:"
+        equal: JC
+      - log: "Simulation time:"
+        greater_equal: 0
+  # test duplicating test names
+  - name: my test 3
+    command: --alisim test -m "HKY{2}" -t "RANDOM{yh,100}" -redo
+    tests:
+      - log: "Simulation time:"
+        greater_equal: 0
 #
 #result_outlier_threshold: 0.5
 #
