@@ -2,7 +2,7 @@
 //  alisimulator.h
 //  iqtree
 //
-//  Created by Nhan Ly-Trong on 23/03/2021.
+//  Created by Nhan Ly-Trong on 23/03/2021. 
 //
 
 #ifndef alisimulator_h
