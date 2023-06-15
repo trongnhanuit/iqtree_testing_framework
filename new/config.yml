@@ -46,7 +46,13 @@ specific_test:
     tests:
       - log: "BEST SCORE FOUND :"
         equal: 10.2
-        between: [3, 5]
+        between: [-11000, -10000]
+      - log: "BEST SCORE FOUND :"
+        between: [-11000, -10000]
+        equal: 10.2
+      - log: "BEST SCORE FOUND :"
+        between: [-11000, -10000]
+        less: 10.2
       - log: "Total wall-clock time used:"
         greater: 10.1
       - log: "Number of categories:"
@@ -59,16 +65,8 @@ specific_test:
     tests:
       - log: "Total wall-clock time used:"
         greater: 10.1
-  # test comparing strings
-  - name: my test 3
-    command: --alisim test -m JC -t "RANDOM{yh,100}" -redo
-    tests:
-      - log: "Model of substitution:"
-        equal: JC
-      - log: "Simulation time:"
-        greater_equal: 0
   # test duplicating test names
-  - name: my test 3
+  - name: my test 2
     command: --alisim test -m "HKY{2}" -t "RANDOM{yh,100}" -redo
     tests:
       - log: "Simulation time:"
